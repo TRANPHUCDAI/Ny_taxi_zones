@@ -7,6 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "pandas>=3.0.3",
     "psycopg2-binary>=2.9.12",
+    "psycopg[binary]>=3.3.4",
     "pyarrow>=24.0.0",
     "sqlalchemy>=2.0.51",
     "tqdm>=4.68.3",
