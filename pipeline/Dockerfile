@@ -16,10 +16,10 @@ COPY "pyproject.toml" "uv.lock" ".python-version" ./
 RUN uv sync --locked
 
 # Sao chép mã nguồn ứng dụng vào sau
-COPY pipeline.py pipeline.py
+COPY ingest_data.py .
 
 # Thiết lập điểm lệnh đầu vào
-ENTRYPOINT ["uv", "run", "python", "pipeline.py"]
+ENTRYPOINT ["uv", "run", "python", "ingest_data.py"]
 
 # Bước mượn công cụ: Bạn kéo ảnh "ghcr.io/astral-sh/uv:latest" về để copy file thực thi /uv vào thư mục /bin/ của Container (COPY --from=...).
 
