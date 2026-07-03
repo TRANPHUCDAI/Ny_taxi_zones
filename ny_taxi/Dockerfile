@@ -1,5 +1,5 @@
 # Bắt đầu với image Python 3.13-slim
-FROM python:3.13.10-slim
+FROM python:3.13.13-slim
 
 # Sao chép file thực thi uv từ image uv chính thức (mô hình build đa tầng - multi-stage build)
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
@@ -16,10 +16,10 @@ COPY "pyproject.toml" "uv.lock" ".python-version" ./
 RUN uv sync --locked
 
 # Sao chép mã nguồn ứng dụng vào sau
-COPY ingest_data.py .
+COPY ingest_data.py ingest_zones.py ./
 
 # Thiết lập điểm lệnh đầu vào
-ENTRYPOINT ["uv", "run", "python", "ingest_data.py"]
+ENTRYPOINT ["uv", "run", "python"]
 
 # Bước mượn công cụ: Bạn kéo ảnh "ghcr.io/astral-sh/uv:latest" về để copy file thực thi /uv vào thư mục /bin/ của Container (COPY --from=...).
 
